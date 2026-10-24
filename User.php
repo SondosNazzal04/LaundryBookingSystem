@@ -60,5 +60,45 @@ class User {
 		}
 		throw new Exception("Invalid email or password.");
 	}
+
+	public function emailExists($email, $exclude_id = null) {$sql = 'SELECT id FROM users WHERE email = :email';
+		$params = ['email' =>$email];
+
+		if ($exclude_id) {$sql .= ' AND id != :id';
+			$params['id'] =$exclude_id;
+		}
+
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute($params);
+		return $stmt->rowCount() > 0;
+	}
+
+	public function getAll() {
+		// Fetch users, but exclude admins so you don't accidentally delete yourself
+		$stmt =$this->pdo->query("SELECT * FROM users WHERE role = 'user'");
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function update($id,$name, $email,$password) {
+		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+		$sql = 'UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id';$stmt = $this->pdo->prepare($sql);
+		return $stmt->execute([
+			'name' => $name,
+			'email' => $email,
+			'password' => $hashed_password,
+			'id' => $id
+		]);
+	}
+
+	public function delete($id) {
+		$sql = 'DELETE FROM users WHERE id = :id';$stmt = $this->pdo->prepare($sql);
+		return $stmt->execute(['id' =>$id]);
+	}
+
+	public function toggleActivation($id,$current_status) {
+		$new_status =$current_status == 1 ? 0 : 1;
+		$sql = 'UPDATE users SET is_active = :status WHERE id = :id';$stmt = $this->pdo->prepare($sql);
+		return $stmt->execute(['status' => $new_status, 'id' =>$id]);
+	}
 }
 ?>

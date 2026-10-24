@@ -36,7 +36,8 @@ $stats = [
 	<nav>
 		<h1>Admin Dashboard</h1>
 		<p>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?></p>
-		<a href="login.php">Logout</a>
+		<a href="manage_users.php">Manage Users</a>
+		<a href="logout.php">Logout</a>
 	</nav>
 
 	<div class="dashboard-stats">
