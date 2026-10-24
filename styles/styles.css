@@ -1,0 +1,219 @@
+/* =========================================
+   Global Reset & Base Styles
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 40px;
+}
+
+/* =========================================
+   Navigation Bar
+========================================= */
+nav {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 20px;
+    color: white;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+/* =========================================
+   Typography & Headers
+========================================= */
+h2, h3 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   Layout Containers (Forms, Tables, Cards)
+========================================= */
+form, .section, table, .dashboard-stats {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Make standalone forms (like login/register) smaller */
+form:not(.section form):not(table form) {
+    max-width: 450px;
+}
+
+fieldset {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #3498db;
+    padding: 0 10px;
+}
+
+/* =========================================
+   Inputs & Buttons
+========================================= */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+button, input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* =========================================
+   Dashboard Stats
+========================================= */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    border-left: 5px solid #3498db;
+}
+
+/* =========================================
+   Tables
+========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    padding: 0;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+table th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+table tr:hover {
+    background-color: #fbfbfb;
+}
+
+/* Fix inline forms and inputs inside tables */
+table form {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+table input[type="text"] {
+    width: auto;
+    margin-bottom: 0;
+    padding: 6px;
+    display: inline-block;
+}
+
+table button {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+/* =========================================
+   Alert Messages
+========================================= */
+.alert, p[style*="color:green"], p[style*="color:red"], div[style*="color:green"], div[style*="color:red"] {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
