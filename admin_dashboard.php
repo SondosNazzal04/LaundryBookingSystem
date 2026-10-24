@@ -37,6 +37,7 @@ $stats = [
 		<h1>Admin Dashboard</h1>
 		<p>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?></p>
 		<a href="manage_users.php">Manage Users</a>
+		<a href="manage_reservations.php">Manage Reservations</a>
 		<a href="logout.php">Logout</a>
 	</nav>
 
